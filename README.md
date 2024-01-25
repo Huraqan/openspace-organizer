@@ -7,4 +7,4 @@ With this piece of software you will not only be able to assign everyone a seat,
 What a time to be alive!
 
 ## Usage
-To use this script...
+To use this script you must, ah ja... use it eh poupie!

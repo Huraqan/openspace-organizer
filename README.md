@@ -1,1 +1,1 @@
-# openspace-organizer
+# Openspace - Organizer

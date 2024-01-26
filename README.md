@@ -1,5 +1,5 @@
 # Openspace - Organizer
-![python version](https://img.shields.io/badge/python-v3.12.1) ![python version](https://img.shields.io/badge/build-v1.04)
+![python version](https://img.shields.io/badge/python-v3.12.1-green) ![build version](https://img.shields.io/badge/build-v1.04-blue)
 
 ## Mockup project for educational purposes only
 This project aims at bringing the power of room organization to the common man.

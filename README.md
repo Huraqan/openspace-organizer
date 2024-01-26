@@ -17,5 +17,8 @@ You can provide the filename at runtime. A valid file "colleagues.txt" is includ
 
 A JSON config file ("config.json") can be used to load a particular room setup, the user will be prompted for confirmation.
 
+## Nice-to-haves
+- The possibility of adding a table has been implemented, but it is important to know there is currently no limit to the amount of tables that can be added. The program will prompt the user for each new table added.
+
 ## Enjoy an organized room
 ![Open space image](image.png)

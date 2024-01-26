@@ -14,6 +14,7 @@ class OpenSpace:
 
         self.tables = [Table(table_capacity) for i in range(table_count)]
         self.table_count = table_count
+        self.table_capacity = table_capacity
         self.room_capacity = table_count * table_capacity
         self.seated_people = 0
         self.people_kicked_out = 0
@@ -28,12 +29,17 @@ class OpenSpace:
         shuffle(names)
 
         if len(names) > self.room_capacity:
+            if input("\nToo many people in the room. Add a table?") == "y":
+                self.tables.append(Table(self.table_capacity))
+                self.room_capacity += self.table_capacity
+                self.organize(names)
+                return
+
             seatable = names[:self.room_capacity:]
             self.surplus = names[self.room_capacity::]
             self.people_kicked_out = len(self.surplus)
 
             print(
-                "\nToo many people in the room.\n" + 
                 f"\nSeating: {str(seatable)}\n" +
                 f"\nGracefully kicking out: {str(self.surplus)}\n")
         else:
@@ -43,7 +49,7 @@ class OpenSpace:
 
         for name in seatable:
             for table in self.tables:
-                if not table.has_free_spot(): continue # Ruff says this is bad but I prefer to do this kind of condition check in one line
+                if not table.has_free_spot(): continue # Ruff says this is bad but I prefer to do this kind of condition check in one line, is it really that bad?
 
                 table.assign_seat(name)
                 self.seated_people += 1

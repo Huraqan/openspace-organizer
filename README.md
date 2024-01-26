@@ -1,4 +1,5 @@
 # Openspace - Organizer
+![python version](https://img.shields.io/badge/any_text-you_like-blue)
 
 ## Mockup project for educational purposes only
 This project aims at bringing the power of room organization to the common man.
@@ -17,4 +18,4 @@ You can provide the filename at runtime. A valid file "colleagues.txt" is includ
 A JSON config file ("config.json") can be used to load a particular room setup, the user will be prompted for confirmation.
 
 ## Enjoy an organized room
-![Alt text](image.png)
+![Open space image](image.png)

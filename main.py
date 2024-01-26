@@ -1,7 +1,8 @@
-from src.openspace import OpenSpace
 import json
-from time import sleep
 from random import choice
+from time import sleep
+
+from src.openspace import OpenSpace
 
 if __name__ == "__main__":
     def load_room() -> OpenSpace:
@@ -33,12 +34,11 @@ if __name__ == "__main__":
         - table_capacity: number of seats per table
         """
 
-        print(
-            f"\n\nCreating a new room with {table_count} tables with {table_capacity} seats per table, a total of {table_capacity * table_count} seats!")
+        print(f"\n\nCreating a new room with {table_count} tables with {table_capacity} seats per table, a total of {table_capacity * table_count} seats!")
 
         return OpenSpace(table_count, table_capacity)
 
-    def load_colleagues(colleagues_filepath : str):
+    def load_colleagues(colleagues_filepath : str) -> list[str]:
         """
         Takes a room and fills it with people from a list.
         The list must be a txt file with names separated by a comma.
@@ -53,12 +53,13 @@ if __name__ == "__main__":
                 return names
         except FileNotFoundError:
             print("\nColleagues file not found...")
-            return None
+            return []
 
     
     print("\n\nWELCOME TO SEATFINDER 2024 - THE BEST TOOL TO GET PEOPLE SEATED\n")
     
-    colleagues = load_colleagues(input("Provide a valid txt filename for attendance list: "))
+    colleagues_filename = input("Provide a valid txt filename for attendance list (colleagues.txt): ")
+    colleagues = load_colleagues(colleagues_filename)
 
     if not colleagues:
         print(

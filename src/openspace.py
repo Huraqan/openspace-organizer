@@ -1,9 +1,9 @@
-from src.table import Table
-from typing import List
-from random import shuffle
-import pandas
-import openpyxl
 import os
+from random import shuffle
+
+from pandas import DataFrame
+
+from src.table import Table
 
 class OpenSpace:
     def __init__(self, table_count : int = 6, table_capacity : int = 4):
@@ -19,7 +19,7 @@ class OpenSpace:
         self.people_kicked_out = 0
         self.surplus = []
     
-    def organize(self, names : List[str]):
+    def organize(self, names : list[str]):
         """
         Randomly seats as many poeple from the list as possible.
         Remaining people will be kicked out!
@@ -83,7 +83,7 @@ class OpenSpace:
                 data["Seats"].append(f"Seat {j + 1}")
                 data["Occupants"].append(seat.occupant)
 
-        data_frame = pandas.DataFrame(data)
+        data_frame = DataFrame(data)
         data_frame.to_excel(filename, index = False)
 
         print(f"\nData stored to excel file at: {os.path.abspath(filename)}")

@@ -93,7 +93,7 @@ if __name__ == "__main__":
                 sleep(1.0)
 
             if current_room.seated_people == 0:
-                print("\nFinally!\nEveryone's gone.\nNow you can get back to doing that *thing* you always love doing when nobody is around hehehe...\n\n")
+                print("\nFinally!\nEveryone's gone.\nNow you can get back to doing that *thing* you love doing when nobody is around hehehe...\n\n")
                 
                 break
             

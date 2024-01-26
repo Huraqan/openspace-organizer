@@ -7,7 +7,13 @@ With this piece of software you will not only be able to assign everyone a seat,
 What a time to be alive!
 
 ## Installation
-...
+- Python interpreter is needed: install python from https://www.python.org/downloads/
+- Launch main.py from a terminal: ...\openspace-organizer> python main.py
 
 ## Usage
-To use this script you must have a valid txt file with names separated by a comma in the main directory. You can provide the filename at runtime. A JSON config file ("config.json") can be used to load a particular room setup, user will be prompted for confirmation.
+To use this script you must have a valid txt file with names separated by a comma in the main directory.
+You can provide the filename at runtime. A valid file "colleagues.txt" is included in this project.
+
+A JSON config file ("config.json") can be used to load a particular room setup, the user will be prompted for confirmation.
+
+![Alt text](https://thumbs.dreamstime.com/z/modern-office-open-space-desks-computers-chairs-comfortable-co-working-area-shared-workplace-full-stylish-furniture-139361003.jpg)

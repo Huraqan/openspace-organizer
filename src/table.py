@@ -1,17 +1,23 @@
 from typing import List
+from random import choice
 
 class Seat:
     def __init__(self, free : bool = True, occupant : str = "Empty seat"):
-        """Seat object with a "free" boolean"""
-
+        """Seat object which can have an occupant, defined by a string."""
         self.free = free
         self.occupant = occupant
     
     def set_occupant(self, name):
         """Seats a person if a spot is avaible"""
+        self.occupant = name
+        self.free = False
     
-    def remove_occupant():
-        """Removes a random person and returns their name"""
+    def remove_occupant(self):
+        """Removes and returns a person's name"""
+        temp_name = self.occupant
+        self.occupant = "Empty seat"
+        self.free = True
+        return temp_name
         
 
 class Table:
@@ -35,21 +41,27 @@ class Table:
             return
         
         for seat in self.seats:
-            if not seat.free: continue
+            if not seat.free:
+                continue
             
-            seat.occupant = name
-            seat.free = False
+            seat.set_occupant(name)
             return
     
     def capacity_left(self):
         """Returns total capacity left at this table"""
-
-        capacity_left = 0
-
-        for seat in self.seats:
-            if seat.free: capacity_left += 1
         
-        return capacity_left
+        return sum([int(seat.free) for seat in self.seats])
+    
+    def remove_random_occupant(self):
+        """Removes a random person from the table and returns their name."""
+        
+        occupied_seats = [seat for seat in self.seats if not seat.free]
+        
+        if occupied_seats:
+            return choice(occupied_seats).remove_occupant()
+        else:
+            return None
+
         
 
 

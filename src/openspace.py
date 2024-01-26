@@ -7,43 +7,57 @@ import os
 
 class OpenSpace:
     def __init__(self, table_count : int = 6, table_capacity : int = 4):
-        """Defines an open space with table_count amount of tables and a table_capacity worth of seats per table"""
+        """
+        Defines an open space with "table_count" tables
+        and "table_capacity" seats per table.
+        """
 
         self.tables = [Table(table_capacity) for i in range(table_count)]
         self.table_count = table_count
         self.room_capacity = table_count * table_capacity
+        self.seated_people = 0
         self.people_kicked_out = 0
         self.surplus = []
     
     def organize(self, names : List[str]):
-        """Randomly seats every person from the list of names until no longer possible. Remaining people will be kicked out!"""
+        """
+        Randomly seats as many poeple from the list as possible.
+        Remaining people will be kicked out!
+        """
 
         shuffle(names)
 
-        if self.room_capacity < len(names):
+        if len(names) > self.room_capacity:
             seatable = names[:self.room_capacity:]
             self.surplus = names[self.room_capacity::]
             self.people_kicked_out = len(self.surplus)
-            print("\nToo many people in the room.\n\nSeating: " + str(seatable) + "\n\nGracefully kicking out: " + str(self.surplus))
+
+            print(
+                "\nToo many people in the room.\n" + 
+                f"\nSeating: {str(seatable)}\n" +
+                f"\nGracefully kicking out: {str(self.surplus)}\n")
         else:
             seatable = names
 
+            print("\nEverybody gets a seat.\n")
+
         for name in seatable:
             for table in self.tables:
-                if not table.has_free_spot(): continue
+                if not table.has_free_spot(): continue # Ruff says this is bad but I prefer to do this kind of condition check in one line
 
                 table.assign_seat(name)
+                self.seated_people += 1
                 break
             
     
     def display(self):
-        """Displays all tables and their occupants"""
+        """Prints out all tables and their occupants"""
 
-        info = ""
+        info = "\nCURRENT DISTRIBUTION:"
         seats_left = 0
 
         for i, table in enumerate(self.tables):
-            info += f"\n\nTable {i + 1}:\n"
+            info += f"\n\nTable {i + 1}:"
             seats_left += table.capacity_left()
             
             for j, seat in enumerate(table.seats):
@@ -73,4 +87,3 @@ class OpenSpace:
         data_frame.to_excel(filename, index = False)
 
         print(f"\nData stored to excel file at: {os.path.abspath(filename)}")
-        print("\nThank you for using OrganX 1.0\n\n")

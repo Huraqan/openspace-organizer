@@ -16,4 +16,4 @@ You can provide the filename at runtime. A valid file "colleagues.txt" is includ
 
 A JSON config file ("config.json") can be used to load a particular room setup, the user will be prompted for confirmation.
 
-![Alt text](https://thumbs.dreamstime.com/z/modern-office-open-space-desks-computers-chairs-comfortable-co-working-area-shared-workplace-full-stylish-furniture-139361003.jpg)
+![Alt text](image.png)
